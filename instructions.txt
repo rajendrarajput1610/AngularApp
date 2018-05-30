@@ -1,0 +1,52 @@
+Step 1 :- Install Extension
+
+Extension List :-
+1 :- Angular v6 Snippets
+2 : ASP.NET Helper
+3 :- Auto Import
+4 :- Beautify
+5 :- C#
+6 :- C# Extensions
+7 :- Docker 
+8 :- mssql 
+9 :- REST Client
+
+Step 2 :- Install Template 
+    CND :- npm install -g yo generator-aspnetcore-spa
+    Note :-  run cmd as Administrator
+
+Step 3 :- Set up Database Connection 
+
+step 4 :- Make Template 
+    cmd:- dotnet new angular
+    cmd :- npm install
+
+Step 5 :- Change Development Envriroment 
+
+    for Change Client side Code refresh Automatically
+
+    cmd setx ASPNETCORE_ENVIRONMENT "Development" /M
+    or set Envriroment variable at machine level 
+    follow step :- system property as usaual
+
+    for Serve Side asp net core code auto compile 
+    Extension :- dotnet watch install and configuration
+    link :- https://github.com/aspnet/DotNetTools/blob/rel/2.0.0/README.md
+
+    add code to .csproj file 
+    <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools" Version="1.0.0" />
+    </ItemGroup>
+
+    run command 
+    dotnet restore 
+
+    run 
+    dotnet watch run
+
+
+
+
+
