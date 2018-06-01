@@ -46,6 +46,45 @@ Step 5 :- Change Development Envriroment
     run 
     dotnet watch run
 
+Step 6 :- Build API
+    -> make domain class 
+    ->install EF 
+    step for install EF 
+        cmd -> dotnet add package Microsoft.EntityFrameWorkCore.SqlServer
+    add cli tool for add-migration command
+
+    add below code to csproj file and cmd dotnet restore
+    
+    <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.EntityFrameWorkCore.Tools.DotNet" Version="2.0.0" />
+    </ItemGroup>
+
+Step 6.1 :- 
+        ;-> Make DbCOntext class and add configuration 
+        for Connection string add below code to Startup.cs class
+        CODE :- 
+            services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        Add Connection string to appSettings.json
+            
+            "ConnectionStrings":
+            {
+                "DefaultConnection" :"server=.\\SQL2016; database=AngularApp; user id = sa ; password = RDX9662496957;"
+            }
+        DbContext class :-  
+            public AppDbContext(DbContextOptions<AppDbContext> Options):base(Options)
+            {
+                
+            }
+            public DbSet<Links> Links { get; set;}
+
+        Make domain modal class 
+        
+        Add migration command
+             dotnet ef migration add initialModel
+            
+
+
+    
 
 
 
